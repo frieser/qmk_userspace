@@ -1,7 +1,6 @@
 // Copyright 2023 Idan Kamara (@idank)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-
 #pragma once
 // Set the mouse settings to a comfortable speed/accuracy trade-off,
 // assuming a screen refresh rate of 60 Htz or higher
@@ -18,8 +17,6 @@
 #define MOUSEKEY_WHEEL_INTERVAL 50
 // The default is 40
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 100
-
-
 
 // Combo configuration
 #define COMBO_COUNT 2
