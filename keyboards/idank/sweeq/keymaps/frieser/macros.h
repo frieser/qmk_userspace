@@ -4,6 +4,11 @@
 // Custom keycodes for macros and VIM commands
 enum custom_keycodes {
     VIM_QUIT = SAFE_RANGE,     // :q
+    VIM_LSP_DEF,              // gd - go to definition
+    VIM_LSP_REF,              // gr - show references
+    VIM_LSP_REN,              // <space>rn - rename symbol
+    VIM_LSP_DOC,              // K - show documentation
+    VIM_COMMENT,              // gcc - toggle comment
     VIM_REDO,                  // ctrl+r
     VIM_UNDO,                  // u
     VIM_YANK_LINE,            // yy
@@ -24,6 +29,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case VIM_QUIT:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_ESCAPE) ":q");
+            }
+            return false;
+        case VIM_LSP_DEF:
+            if (record->event.pressed) {
+                SEND_STRING("gd");
+            }
+            return false;
+        case VIM_LSP_REF:
+            if (record->event.pressed) {
+                SEND_STRING("gr");
+            }
+            return false;
+        case VIM_LSP_REN:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_SPACE) "rn");
+            }
+            return false;
+        case VIM_LSP_DOC:
+            if (record->event.pressed) {
+                SEND_STRING("K");
+            }
+            return false;
+        case VIM_COMMENT:
+            if (record->event.pressed) {
+                SEND_STRING("gcc");
             }
             return false;
         case VIM_START:
